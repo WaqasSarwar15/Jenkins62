@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "Maven Automate Build Started!"
+                echo "Maven Automate Build Started!!"
                 echo "Maven Automate Build Completed!"
                 
             }
