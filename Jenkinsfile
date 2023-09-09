@@ -15,12 +15,12 @@ pipeline{
             }
             post{
                 success{
-                        mail to: "majid.ali3967@gmail.com",
+                        mail to: "Waqassarwar2010@gmail.com",
                         subject: "Test Status",
                         body: "Unit Test was successful!"
                 }
                 failure{
-                        mail to: "majid.ali3967@gmail.com",
+                        mail to: "Waqassarwar2010@gmail.com",
                         subject: "Test Status",
                         body: "Unit Test was failed!"
                     
@@ -40,12 +40,12 @@ pipeline{
             }
             post{
                 success{
-                        mail to: "majid.ali3967@gmail.com",
+                        mail to: "Waqassarwar2010@gmail.com",
                         subject: "Security Scan Status",
                         body: "Security Scan was successful!"
                 }
                 failure{
-                        mail to: "majid.ali3967@gmail.com",
+                        mail to: "Waqassarwar2010@gmail.com",
                         subject: "Security Scan Status",
                         body: "Security Scan was failed!"
                 }
