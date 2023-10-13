@@ -10,19 +10,20 @@ pipeline{
         }
         stage("UnitTest"){
             steps{
+                sh 'echo "artifact file" > unit_log.txt'
                 echo "Unit Testing using JUNIT Started!"
                 echo "Unit Testing using JUNIT Completed!"
-                archiveArtifacts artifacts: '${JENKINS_HOME}/workspace/${JOB_NAME}/unit_test.log', allowEmptyArchive: true
             }
             post{
                 success{
-                        mail to: "waqassarwar15@yahoo.com",
+                    archiveArtifacts artifacts: 'unit_log.txt', onlyIfSuccessful: true
+                        emailext attachLog: true, attachmentsPattern: 'generatedFile.txt', to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
-                        body: "Unit Test was successful!",
-                        attachLog: true
+                        body: "Unit Test was successful!"
                 }
                 failure{
-                        mail to: "waqassarwar15@yahoo.com",
+                         archiveArtifacts artifacts: 'unit_log.txt', onlyIfSuccessful: true
+                        emailext attachLog: true, attachmentsPattern: 'generatedFile.txt', to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was failed!",
                         attachLog:true
