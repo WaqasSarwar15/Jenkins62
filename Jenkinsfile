@@ -19,7 +19,7 @@ pipeline{
                         mail to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was successful!",
-                        attachmentsPattern:unit_test.log
+                        attachments:unit_test.log
                 }
                 failure{
                         mail to: "waqassarwar15@yahoo.com",
