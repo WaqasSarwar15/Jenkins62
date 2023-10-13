@@ -12,7 +12,7 @@ pipeline{
             steps{
                 echo "Unit Testing using JUNIT Started!"
                 echo "Unit Testing using JUNIT Completed!"
-                archiveArtifacts artifacts: 'unit_test.log', allowEmptyArchive: true
+                archiveArtifacts artifacts: '${JENKINS_HOME}/workspace/${JOB_NAME}/unit_test.log', allowEmptyArchive: true
             }
             post{
                 success{
