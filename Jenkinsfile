@@ -19,13 +19,13 @@ pipeline{
                         emailext(to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was successful!",
-                        attachLog:"${JENKINS_HOME}/workspace/${JOB_NAME}/unit_test.log")
+                        attachLog: true)
                 }
                 failure{
                         emailext(to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was failed!",
-                        attachLog:"${JENKINS_HOME}/workspace/${JOB_NAME}/unit_test.log")
+                        attachLog:true)
                     
                 }
             }
