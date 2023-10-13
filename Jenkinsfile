@@ -16,16 +16,16 @@ pipeline{
             }
             post{
                 success{
-                        emailext(to: "waqassarwar15@yahoo.com",
+                        mail to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was successful!",
-                        attachLog: true)
+                        attachLog: true
                 }
                 failure{
-                        emailext(to: "waqassarwar15@yahoo.com",
+                        mail to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was failed!",
-                        attachLog:true)
+                        attachLog:true
                     
                 }
             }
