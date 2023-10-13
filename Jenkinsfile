@@ -15,9 +15,12 @@ pipeline{
             }
             post{
                 success{
+                     def logs = 'attachment.log'
+                        writeFile file: logs, text: 'Unit Testing using JUNIT Started!\n'
                         mail to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
-                        body: "Unit Test was successful!"
+                        body: "Unit Test was successful!",
+                        attachmentPattern:logs
                 }
                 failure{
                         mail to: "waqassarwar15@yahoo.com",
