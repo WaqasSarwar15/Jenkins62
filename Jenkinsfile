@@ -12,20 +12,20 @@ pipeline{
             steps{
                 echo "Unit Testing using JUNIT Started!"
                 echo "Unit Testing using JUNIT Completed!"
+                archiveArtifacts artifacts: 'unit_test.log', allowEmptyArchive: true
             }
             post{
                 success{
-                     def logs = 'attachment.log'
-                        writeFile file: logs, text: 'Unit Testing using JUNIT Started!\n'
                         mail to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was successful!",
-                        attachmentsPattern:logs
+                        attachmentsPattern:unit_test.log
                 }
                 failure{
                         mail to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
-                        body: "Unit Test was failed!"
+                        body: "Unit Test was failed!",
+                        attachmentsPattern:unit_test.log
                     
                 }
             }
