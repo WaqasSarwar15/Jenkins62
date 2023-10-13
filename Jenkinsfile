@@ -16,10 +16,10 @@ pipeline{
             }
             post{
                 success{
-                        mail to: "waqassarwar15@yahoo.com",
+                        emailext(to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
                         body: "Unit Test was successful!",
-                        attachments:unit_test.log
+                        attachments:"${JENKINS_HOME}/workspace/${JOB_NAME}/unit_test.log")
                 }
                 failure{
                         mail to: "waqassarwar15@yahoo.com",
