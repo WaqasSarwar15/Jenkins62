@@ -25,8 +25,7 @@ pipeline{
                          archiveArtifacts artifacts: 'unit_log.txt', onlyIfSuccessful: true
                         emailext attachLog: true, attachmentsPattern: 'generatedFile.txt', to: "waqassarwar15@yahoo.com",
                         subject: "Test Status",
-                        body: "Unit Test was failed!",
-                        attachLog:true
+                        body: "Unit Test was failed!"
                     
                 }
             }
