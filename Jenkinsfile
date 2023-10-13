@@ -10,22 +10,15 @@ pipeline{
         }
         stage("UnitTest"){
             steps{
-                sh 'echo "artifact file" > unit_log.txt'
                 echo "Unit Testing using JUNIT Started!"
                 echo "Unit Testing using JUNIT Completed!"
             }
             post{
                 success{
-                    archiveArtifacts artifacts: 'unit_log.txt', onlyIfSuccessful: true
-                        emailext attachLog: true, attachmentsPattern: 'generatedFile.txt', to: "waqassarwar15@yahoo.com",
-                        subject: "Test Status",
-                        body: "Unit Test was successful!"
+                        emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Test Status", body: "Unit Test was successful!"
                 }
                 failure{
-                         archiveArtifacts artifacts: 'unit_log.txt', onlyIfSuccessful: true
-                        emailext attachLog: true, attachmentsPattern: 'generatedFile.txt', to: "waqassarwar15@yahoo.com",
-                        subject: "Test Status",
-                        body: "Unit Test was failed!"
+                        emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Test Status", body: "Unit Test was failed!"
                     
                 }
             }
