@@ -15,10 +15,10 @@ pipeline{
             }
             post{
                 success{
-                        emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Test Status", body: "Unit Test was successful!"
+                        emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Unit Test Status", body: "Unit Test was successful!"
                 }
                 failure{
-                        emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Test Status", body: "Unit Test was failed!"
+                        emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Unit Test Status", body: "Unit Test was failed!"
                     
                 }
             }
@@ -36,14 +36,10 @@ pipeline{
             }
             post{
                 success{
-                        mail to: "waqassarwar15@yahoo.com",
-                        subject: "Security Scan Status",
-                        body: "Security Scan was successful!"
+                    emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Security Scan Status", body: "Security Scan was successful!"
                 }
                 failure{
-                        mail to: "waqassarwar15@yahoo.com",
-                        subject: "Security Scan Status",
-                        body: "Security Scan was failed!"
+                    emailext attachLog: true, to: "waqassarwar15@yahoo.com", subject: "Security Scan Status", body: "Security Scan was failed!"
                 }
             }
         }
